@@ -1,45 +1,45 @@
 # ProxyParser
 
-Данный скрипт на Python предназначен для автоматического сбора и проверки HTTP/HTTPS прокси-серверов.
+This Python script is designed for automatic collection and validation of HTTP/HTTPS proxy servers.
 
-## Ключевые параметры
+## Key Parameters
 
-Настройки скрипта задаются через константы в начале файла:
+The script settings are defined through constants at the beginning of the file:
 
-*   `API_URL`: Базовый URL для получения списков прокси.
-*   `DAYS_BACK`: Количество дней в прошлом, за которые будут запрашиваться прокси.
-*   `TIMEOUT`: Максимальное время ожидания ответа от прокси-сервера при проверке (в секундах).
-*   `TEST_URL`: URL, используемый для проверки работоспособности прокси.
-*   `MAX_WORKERS`: Максимальное количество потоков, используемых для параллельной проверки прокси.
-*   `PROXY_FILE`: Имя файла, в который будут сохранены рабочие прокси.
+*   `API_URL`: Base URL for fetching proxy lists.
+*   `DAYS_BACK`: Number of past days from which proxies will be requested.
+*   `TIMEOUT`: Maximum response wait time for a proxy server during validation (in seconds).
+*   `TEST_URL`: URL used to test proxy functionality.
+*   `MAX_WORKERS`: Maximum number of threads used for parallel proxy validation.
+*   `PROXY_FILE`: Name of the file where working proxies will be saved.
 
-## Зависимости
+## Dependencies
 
-Скрипт использует следующие внешние библиотеки:
+The script uses the following external libraries:
 
-*   `requests`: для выполнения HTTP-запросов.
-*   `rich`: для форматированного вывода в консоль (таблицы, прогресс-бары, цвета).
+*   `requests`: for making HTTP requests.
+*   `rich`: for formatted console output (tables, progress bars, colors).
 
-Убедитесь, что эти библиотеки установлены в вашем окружении Python. 
+Make sure these libraries are installed in your Python environment.
 
-## Установка
+## Installation
 
-1.  Клонируйте репозиторий (если он есть) или просто скачайте файл `proxy.py`.
+1.  Clone the repository (if available) or simply download the file `proxy.py`.
     ```bash
     git clone https://github.com/apofeoziy/ProxyParser
     ```
-2.  Установите пакеты:
+2.  Install the required packages:
 
     ```bash
     pip install requests rich
     ```
 
-## Использование
+## Usage
 
-Для запуска скрипта выполните команду в терминале, находясь в директории со скриптом:
+To run the script, execute the following command in your terminal from the script’s directory:
 
 ```bash
 python proxy.py
 ```
 
-После завершения работы скрипта, рабочие прокси-серверы будут сохранены в файл, указанный в переменной `PROXY_FILE` (по умолчанию `proxy.txt`). 
+After the script finishes, working proxy servers will be saved to the file specified in the `PROXY_FILE` variable (default is `proxy.txt`). 
