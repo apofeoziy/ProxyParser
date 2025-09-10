@@ -4,7 +4,6 @@ import uuid
 from itertools import cycle
 import os
 
-# Конфигурация
 PROXY_FILE = 'proxy.txt'
 USER_AGENTS_FILE = 'user_agents.txt'
 URL_FILE = 'url.txt'
@@ -12,7 +11,6 @@ BASE_URL = 'https://drive.google.com/drive/folders/'
 ERROR_TEXT = '<body><main id="af-error-container" role="main"><a href="//www.google.com"><span id="logo" aria-label="Google" role="img"></span></a><p><b>404.</b> <ins>That’s an error.</ins></p><p>The requested URL was not found on this server. <ins>That’s all we know.</ins></p></main></body>'
 
 def generate_user_agents(num=100):
-    """Генерация случайных User-Agent"""
     agents = []
     chrome_versions = range(90, 123)
     firefox_versions = range(90, 121)
@@ -47,7 +45,6 @@ def generate_user_agents(num=100):
 
 def load_resources():
     """Загрузка или генерация User-Agents и прокси"""
-    # Обработка User-Agents
     user_agents = []
     if os.path.exists(USER_AGENTS_FILE):
         with open(USER_AGENTS_FILE, 'r') as f:
@@ -57,7 +54,6 @@ def load_resources():
         user_agents = generate_user_agents(100)
         print(f"Сгенерировано {len(user_agents)} User-Agents")
     
-    # Обработка прокси
     proxies = []
     if os.path.exists(PROXY_FILE):
         with open(PROXY_FILE, 'r') as f:
@@ -65,7 +61,6 @@ def load_resources():
     
     return user_agents, cycle(proxies) if proxies else None
 
-# Остальной код без изменений
 def generate_uuid():
     while True:
         yield str(uuid.uuid4()).replace('-', '')[:32]
@@ -98,4 +93,5 @@ def main():
             print(f'Found valid URL: {BASE_URL}{folder_id}')
 
 if __name__ == '__main__':
+
     main()
