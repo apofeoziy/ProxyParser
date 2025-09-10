@@ -33,7 +33,7 @@ def generate_user_agents(num=100):
         elif browser_type == 'safari':
             template = f"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/{random.choice([15, 16])}.0 Safari/605.1.15"
         
-        else:  # mobile
+        else:
             if random.choice([True, False]):
                 template = f"Mozilla/5.0 (Linux; Android {random.choice(android_versions)}; {random.choice(['Mobile', 'Tablet'])}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.choice(chrome_versions)}.0.0.0 Mobile Safari/537.36"
             else:
@@ -44,7 +44,6 @@ def generate_user_agents(num=100):
     return agents
 
 def load_resources():
-    """Загрузка или генерация User-Agents и прокси"""
     user_agents = []
     if os.path.exists(USER_AGENTS_FILE):
         with open(USER_AGENTS_FILE, 'r') as f:
@@ -93,5 +92,4 @@ def main():
             print(f'Found valid URL: {BASE_URL}{folder_id}')
 
 if __name__ == '__main__':
-
     main()
